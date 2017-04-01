@@ -1,0 +1,14 @@
+{
+  "name": "dynamic-import-test",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.20.0",
+    "bcryptjs": "^2.4.3",
+    "meteor-node-stubs": "~0.2.4",
+    "moment": "^2.18.1",
+    "react": "^15.4.2"
+  }
+}
