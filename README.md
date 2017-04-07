@@ -18,6 +18,7 @@ open ```http://localhost:3000``` to try
 ## 1. create a Meteor app
 
 You may change the beta version to the latest one
+
 ```meteor create --release 1.5-beta.13 dynamic-import-test```
 
 ## 2. go to the app you just created

@@ -13,22 +13,36 @@ Template.hello.helpers({
 });
 
 Template.hello.events({
-  'click button'(event, instance) {
+  async 'click button'(event, instance) {
     instance.counter.set(instance.counter.get() + 1);
 
-    import("bcryptjs").then( bcryptjs => {
+    try {
+      let bcryptjs = await import("bcryptjs")
+
       const saltRounds = 10;
       const salt = bcryptjs.genSaltSync(saltRounds);
       const plaintextPassword = '123456';
       const hash = bcryptjs.hashSync(plaintextPassword, salt);
       console.log("hashed password：", hash);
-    });
-
-    import("react").then( React => {
-      import moment from 'moment'
-      console.log("Today is ", moment().format('YYYY-MM-DD'));
-
-      console.log("React object: ", React);
-    });
-  },
+    } catch (err) {
+      console.log("hello error: ", err);
+    }
+  }
 });
+
+Template.info.events({
+  async 'click button'(event, instance) {
+    try {
+      let di = await import("../imports/test_module")
+      console.log("print dynamic imports: ", di.obj.test, di.num, di.default.anotherTest);
+
+      let React = await import("react")
+      let ReactDOM = await import("react-dom")
+      
+      import App from '../imports/components/App';
+      ReactDOM.render( <App/>, document.getElementById('react-root') );
+    } catch (err) {
+      console.log("info error: ", err);
+    }
+  }
+})
