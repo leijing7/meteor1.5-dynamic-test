@@ -1,4 +1,8 @@
 
+## Update
+
+Added React loadable usage for dynamic imports
+
 # Try the new awesome Meteor dynamic imports feature 
 
 1. ```git clone https://github.com/leijing7/meteor1.5-dynamic-test.git```
